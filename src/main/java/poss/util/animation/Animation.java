@@ -2,6 +2,8 @@ package poss.util.animation;
 
 
 import org.jetbrains.annotations.NotNull;
+import poss.util.Action;
+import poss.util.IsBoolInterface;
 import poss.util.IsTick;
 import poss.util.TickRegistory;
 
@@ -122,6 +124,23 @@ public abstract class Animation {
             prop.add(new Center());
             return this;
         }
+        public Properties frame(Color c){
+            prop.add(new Frame(c));
+            return this;
+        }
+        public Properties frame(Color c, IsBoolInterface b){
+            prop.add(new Frame(c, b));
+            return this;
+        }
+        public Properties frame(Color c, int w, int h, IsBoolInterface b){
+            prop.add(new Frame(c, w, h, b));
+            return this;
+        }
+        public Properties button(Action data){
+            prop.add(new Button(data));
+            return this;
+        }
+
         public Properties color(Color c){
             prop.add(new DisplayColor(c));
             return this;
