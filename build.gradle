@@ -1,14 +1,18 @@
 plugins {
     id 'java'
 }
+apply plugin:'application'
 
 group 'poss.main'
 version '1.0-SNAPSHOT'
-
+mainClassName = 'poss.main.Main'
 repositories {
     mavenCentral()
 }
-
+jar {
+    archiveBaseName = 'gs-gradle'
+    archiveVersion =  '0.1.0'
+}
 dependencies {
     implementation 'org.jetbrains:annotations:20.1.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'

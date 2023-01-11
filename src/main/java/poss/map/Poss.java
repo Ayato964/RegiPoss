@@ -1,12 +1,14 @@
 package poss.map;
 
+import poss.system.tab.NomalTab;
+
 import java.awt.*;
-import java.net.UnknownHostException;
 
 public class Poss extends Map {
+    public Poss(){
+    }
     @Override
-    public void setup(Graphics g) throws UnknownHostException {
-
+    public void setup(Graphics g)  {
     }
 
     @Override

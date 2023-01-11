@@ -1,11 +1,11 @@
 package poss.map;
 
-import java.awt.*;
-import java.net.UnknownHostException;
+import poss.util.Display;
 
-public abstract class Map{
+import java.awt.*;
+
+public abstract class Map implements Display {
     public Map(){
     }
-    public abstract void setup(Graphics g) throws UnknownHostException;
-    public abstract void display(Graphics g);
+    public abstract void setup(Graphics g);
 }
