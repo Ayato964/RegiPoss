@@ -1,5 +1,6 @@
 package poss.map;
 
+import poss.system.SQLoader;
 import poss.system.tab.NomalTab;
 
 import java.awt.*;
@@ -9,6 +10,7 @@ public class Poss extends Map {
     }
     @Override
     public void setup(Graphics g)  {
+        SQLoader.getBigData();
     }
 
     @Override
