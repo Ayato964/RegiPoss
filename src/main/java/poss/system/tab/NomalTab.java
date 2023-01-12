@@ -11,6 +11,7 @@ public class NomalTab extends AbstractItemTab {
 
     @Override
     protected void getButton(ArrayList<RegiButton> buttons) {
+
     }
 
 }

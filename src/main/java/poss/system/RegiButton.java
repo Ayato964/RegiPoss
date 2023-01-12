@@ -19,6 +19,13 @@ public class RegiButton implements Display {
         this.w = w;
         this.h = h;
     }
+    public RegiButton(ItemData data){
+
+    }
+    public void setPosition(int _x, int _y){
+        x = _x;
+        y = _y;
+    }
     @Override
     public void display(@NotNull Graphics g) {
         g.setColor(Color.WHITE);
