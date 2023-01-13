@@ -2,10 +2,12 @@ package poss.main;
 
 import poss.map.Map;
 import poss.map.Title;
+import poss.system.SQLoader;
 import poss.util.Tick;
 
 import javax.swing.*;
 
+import java.awt.event.MouseListener;
 import java.awt.image.*;
 import java.awt.*;
 import java.net.UnknownHostException;
@@ -56,10 +58,14 @@ public class Main extends JFrame{
         m.run(new Title());
         System.out.println("Tick Loaded");
         Tick.getInstance();
+        SQLoader.getBigData().get(3).printData();
     }
 
     public void run(Map map){
         g.clearRect(0, 0, getWidth(), getHeight());
+        MouseListener[] m = getMouseListeners();
+        for(MouseListener i : m)
+            removeMouseListener(i);
         Tick.getInstance().removeAllAnimation();
         displayMap = map;
         displayMap.setup(g);

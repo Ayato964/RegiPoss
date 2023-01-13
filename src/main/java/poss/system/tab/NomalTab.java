@@ -14,7 +14,7 @@ public class NomalTab extends AbstractItemTab {
 
     @Override
     protected void getButton(ArrayList<RegiButton> buttons) {
-        ItemData[] data = SQLoader.getBigData().gets(category);
+        ArrayList<ItemData> data = SQLoader.getBigData().gets(category);
         for(ItemData d : data)
             buttons.add(new RegiButton(d));
     }
