@@ -12,11 +12,12 @@ public class Poss extends Map {
     }
     @Override
     public void setup(Graphics g)  {
+        ItemData d = SQLoader.getBigData().get(0);
+        d.printData();
     }
 
     @Override
     public void display(Graphics g) {
-
         Tabs.getInstance().display(g);
     }
 }

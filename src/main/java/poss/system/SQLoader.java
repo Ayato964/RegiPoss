@@ -17,6 +17,7 @@ public class SQLoader {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
         try{
                 connect = DriverManager.getConnection(url);
                 SQL_DATA = connect.createStatement();
@@ -30,7 +31,7 @@ public class SQLoader {
     public @Nullable ItemData get(int id){
         ItemData idata = null;
         try {
-            ResultSet resultSet = SQL_DATA.executeQuery("SELECT ItemID, ItemName, ItemPrice FROM ItemData WHERE ItemID = " + id);
+            ResultSet resultSet = SQL_DATA.executeQuery("SELECT ID, Name, Price FROM ItemData WHERE ID = " + id);
             //System.out.println(resultSet.getInt(1) + "   " + resultSet.getString(2) + "       " +  resultSet.getInt(3));
             idata = ItemData.create(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3));
         } catch (SQLException e) {
@@ -41,7 +42,7 @@ public class SQLoader {
     @Contract(pure = true)
     public @Nullable ItemData get(String name){
         try {
-            ResultSet resultSet = SQL_DATA.executeQuery("SELECT ItemID, ItemName, ItemPrice FROM ItemData WHERE ItemName = " + name);
+            ResultSet resultSet = SQL_DATA.executeQuery("SELECT ID, Name, Price FROM ItemData WHERE Name = " + name);
             return ItemData.create(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3));
 
         } catch (SQLException e) {
@@ -51,7 +52,7 @@ public class SQLoader {
     @Contract(pure = true)
     public ItemData @Nullable []  gets(String category){
         try {
-            ResultSet resultSet = SQL_DATA.executeQuery("SELECT ItemID, ItemName, ItemPrice FROM ItemData WHERE ItemCategory = " + category);
+            ResultSet resultSet = SQL_DATA.executeQuery("SELECT ID, Name, Price FROM ItemData WHERE Category =  '" + category + "'");
             ItemData[] data = new ItemData[resultSet.getFetchSize()];
             int i = 0;
             do {

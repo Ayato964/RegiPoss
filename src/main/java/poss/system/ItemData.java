@@ -10,4 +10,8 @@ public class ItemData {
     public static ItemData create(int id, String name, int price){
         return new ItemData(id, name, price);
     }
+
+    public void printData() {
+        System.out.println(id + "    " + name + "    " + price);
+    }
 }
