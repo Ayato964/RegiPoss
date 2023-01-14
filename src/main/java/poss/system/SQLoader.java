@@ -76,4 +76,12 @@ public class SQLoader {
 
     }
 
+    public void pushes(ArrayList<ItemData> data)  {
+        try {
+            SQL_DATA.executeQuery("UPDATE TABLE PossData SET ID = ");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

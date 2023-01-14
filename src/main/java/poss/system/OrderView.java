@@ -17,15 +17,18 @@ public class OrderView implements Display {
     int w = 0;
     int h = 0;
     ArrayList<AnimationText> mes;
+    ArrayList<ItemData> data;
     int count = 0;
     private static final OrderView instance = new OrderView();
 
     private OrderView(){
         mes = new ArrayList<>();
+        data = new ArrayList<>();
     }
     public static void add(ItemData data){
         if(instance.mes.size() != 0)
             instance.shiftOrder();
+        instance.data.add(data);
         instance.mes.add(Animation.create(Main.getMainGraphics()));
         instance.mes.get(instance.count).draw(data.name + "  " + data.price + "yen", instance.x, instance.y + instance.h - 3, new Animation.Properties()
                 .color(Color.BLACK)
@@ -38,6 +41,10 @@ public class OrderView implements Display {
         for(AnimationText mes : mes){
             mes.setY(mes.getY() - 4);
         }
+    }
+
+    public ArrayList<ItemData> getData() {
+        return data;
     }
 
     public void setBounds(int _x, int _y, int _w, int _h){
