@@ -2,6 +2,7 @@ package poss.system.tab;
 
 import org.jetbrains.annotations.NotNull;
 import poss.system.Accountant;
+import poss.system.OrderView;
 import poss.system.RegiButton;
 import poss.util.Display;
 
@@ -52,9 +53,10 @@ public abstract class AbstractItemTab implements Display, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         for(RegiButton b : buttons){
-            if(b.isClicked(e) && b.getItem() != null)
+            if(b.isClicked(e) && b.getItem() != null) {
                 Accountant.getInstance().sum(b.getItem().price);
-
+                OrderView.add(b.getItem());
+            }
         }
     }
 

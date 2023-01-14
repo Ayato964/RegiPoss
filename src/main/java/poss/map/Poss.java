@@ -2,6 +2,7 @@ package poss.map;
 
 import poss.system.Accountant;
 import poss.system.ItemData;
+import poss.system.OrderView;
 import poss.system.SQLoader;
 import poss.system.tab.NomalTab;
 import poss.system.tab.Tabs;
@@ -17,11 +18,13 @@ public class Poss extends Map {
         d.printData();
         Tabs.getInstance().setup(g);
         Accountant.getInstance().setPosition(160, 90);
+        OrderView.getInstance().setBounds(160, 25, 50, 55);
     }
 
     @Override
     public void display(Graphics g) {
         Tabs.getInstance().display(g);
         Accountant.getInstance().display(g);
+        OrderView.getInstance().display(g);
     }
 }
