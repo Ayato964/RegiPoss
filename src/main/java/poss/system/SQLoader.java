@@ -2,6 +2,7 @@ package poss.system;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
@@ -78,8 +79,31 @@ public class SQLoader {
 
     public void pushes(ArrayList<ItemData> data)  {
         try {
-            SQL_DATA.executeQuery("UPDATE TABLE PossData SET ID = ");
+            connect.setAutoCommit(false);
+            ResultSet max = SQL_DATA.executeQuery("SELECT MAX (ID) FROM PossData");
+            max.next();
+            int id = max.getInt(1) + 1;
+            PreparedStatement push = connect.prepareStatement("INSERT INTO PossData VALUES (?, ?, ?, ?)");
+            int i = 0;
+            connect.beginRequest();
+            for(ItemData d : data){
+                push.setInt(1, id);
+                push.setInt(2, d.id);
+                push.setString(3, "DATETIME('now')");
+                push.setInt(4, 0);
+                i += push.executeUpdate();
+                //i += SQL_DATA.executeUpdate("INSERT INTO PossData VALUES (1, 0, DATETIME('now') 0)");
+            }
+            connect.endRequest();
+            connect.commit();
+            System.out.println(i + " <- UPDATE!!");
+
         } catch (SQLException e) {
+            try {
+                connect.rollback();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
             throw new RuntimeException(e);
         }
 

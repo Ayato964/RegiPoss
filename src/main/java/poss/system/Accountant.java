@@ -35,7 +35,9 @@ public class Accountant implements Display {
     private String getTotal() {
         return new StringBuilder().append("Total:").append(money).append("yen").toString();
     }
-
+    public void reset(){
+        money = 0;
+    }
     public static Accountant getInstance() {
         return instance;
     }

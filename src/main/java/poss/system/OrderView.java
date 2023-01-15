@@ -53,6 +53,13 @@ public class OrderView implements Display {
         w = _w;
         h = _h;
     }
+    public void reset(){
+        count = 0;
+        for(AnimationText m : mes)
+            m.myProp.animationTickRegistory.remove();
+        mes = new ArrayList<>();
+        data = new ArrayList<>();
+    }
     @Override
     public void display(@NotNull Graphics g) {
         g.setColor(Color.WHITE);

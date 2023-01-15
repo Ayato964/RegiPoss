@@ -20,12 +20,14 @@ public class Poss extends Map {
         Tabs.getInstance().setup(g);
         Accountant.getInstance().setPosition(160, 90);
         OrderView.getInstance().setBounds(160, 25, 50, 55);
-        Animation.create(g).draw("Accountant", 160, 100, new Animation.Properties()
+        Animation.create(g).draw("Accountant", 160, 110, new Animation.Properties()
                 .size(32)
                 .color(Color.WHITE)
                 .frame(Color.WHITE)
                 .button(i -> {
                     SQLoader.getBigData().pushes(OrderView.getInstance().getData());
+                    Accountant.getInstance().reset();
+                    OrderView.getInstance().reset();
 
                 })
         );
