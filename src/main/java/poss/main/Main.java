@@ -58,7 +58,7 @@ public class Main extends JFrame{
         m.run(new Title());
         System.out.println("Tick Loaded");
         Tick.getInstance();
-        SQLoader.getBigData().get(3).printData();
+       // SQLoader.getBigData().get(3).printData();
     }
 
     public void run(Map map){
