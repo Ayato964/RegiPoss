@@ -22,8 +22,8 @@ public class Poss extends Map {
         OrderView.getInstance().setBounds(160, 25, 50, 55);
         Animation.create(g).draw("Accountant", 160, 110, new Animation.Properties()
                 .size(32)
-                .color(Color.WHITE)
-                .frame(Color.WHITE)
+                .color(Color.BLACK)
+                .frame(Color.BLACK)
                 .button(i -> {
                     SQLoader.getBigData().pushes(OrderView.getInstance().getData());
                     Accountant.getInstance().reset();

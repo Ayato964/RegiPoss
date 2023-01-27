@@ -26,11 +26,11 @@ public class Tabs implements Display {
         Main.getInstance().addMouseListener(tab.get(categoryTabButton));
     }
     public void setup(Graphics g){
-        g.setColor(Color.WHITE);
+        g.setColor(new Color(0xefefef));
         //g.fillRect(x * Main.DW, y * Main.DH, 150 * Main.DW, 15 * Main.DH);
         int size = 150 / tab.size();
         for(int i = 0; i < tab.size(); i ++){
-            System.out.println(tab.get(i).categoryName + "   " + (x + (size * i)));
+           // System.out.println(tab.get(i).categoryName + "   " + (x + (size * i)));
             int finalI = i;
             Animation.create(g).draw(tab.get(i).getCategoryName(), x + (size * i), y + 15, new Animation.Properties()
                     .size(80)
@@ -42,7 +42,7 @@ public class Tabs implements Display {
     }
     @Override
     public void display(@NotNull Graphics g) {
-        g.setColor(Color.WHITE);
+        g.setColor(new Color(0xefefef));
         g.fillRect(x * Main.DW, y * Main.DH, 150 * Main.DW, 15 * Main.DH);
         tab.get(categoryTabButton).setBounds(x, y + 20, 150, 70);
         tab.get(categoryTabButton).display(g);

@@ -62,8 +62,11 @@ public class OrderView implements Display {
     }
     @Override
     public void display(@NotNull Graphics g) {
-        g.setColor(Color.WHITE);
+        g.setColor(new Color(0xefefef));
         g.fillRect(x * Main.DW, y * Main.DH, w * Main.DW, h * Main.DH);
+        g.setColor(Color.BLACK);
+        g.drawRect(x * Main.DW, y * Main.DH, w * Main.DW, h * Main.DH);
+
     }
 
     public static OrderView getInstance() {

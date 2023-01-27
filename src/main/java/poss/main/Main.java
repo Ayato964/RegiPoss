@@ -37,7 +37,7 @@ public class Main extends JFrame{
         add("Center", panel);
         pack();
         g = panel.getGraphics();
-
+        ((Graphics2D) g).setBackground(Color.WHITE);
 
 
         repaint();
@@ -63,6 +63,7 @@ public class Main extends JFrame{
 
     public void run(Map map){
         g.clearRect(0, 0, getWidth(), getHeight());
+
         MouseListener[] m = getMouseListeners();
         for(MouseListener i : m)
             removeMouseListener(i);

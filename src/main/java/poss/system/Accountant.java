@@ -19,9 +19,10 @@ public class Accountant implements Display {
 
     @Override
     public void display(@NotNull Graphics g) {
-        g.setColor(Color.WHITE);
+        g.setColor(new Color(0xefefef));
         g.fillRect(x * Main.DW, y * Main.DH, 50 * Main.DW, 10 * Main.DH);
         g.setColor(Color.BLACK);
+        g.drawRect(x * Main.DW, y * Main.DH, 50 * Main.DW, 10 * Main.DH);
         g.setFont(new Font("", Font.BOLD, 32));
         g.drawString(getTotal(), x * Main.DW, y * Main.DH + 50);
     }
